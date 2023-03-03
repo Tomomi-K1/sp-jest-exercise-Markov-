@@ -17,7 +17,32 @@ class MarkovMachine {
    *  {"the": ["cat", "hat"], "cat": ["in"], "in": ["the"], "hat": [null]} */
 
   makeChains() {
-    // TODO
+    let chain = {};
+    this.words.forEach((word) =>{
+
+        console.log(`forearch word:${word}`)
+        let possibleWords = this.words.reduce((accum, curValue, curIdx, array)=>{
+          
+           if (curValue === word) {
+            
+              if(curIdx+1 == array.length){
+                console.log(`if array.lentgh: curValue:${curValue}, word: ${word}, accum:${accum}`)
+                accum.push(null);
+              } else {
+              console.log(`adding crr+1 word: curValue:${curValue}, word: ${word}, array[curIdx+1]:${array[curIdx+1]}`)
+              accum.push(array[curIdx+1]) 
+            }
+          }
+
+            return accum
+
+        }, [])
+       
+        chain[word] = possibleWords;
+
+      // }
+    })
+    return chain;
   }
 
 
