@@ -1,6 +1,7 @@
 /** Command-line tool to generate Markov text. */
 const fs = require('fs');
 const axios = require('axios')
+const MarkovMachine = require('./markov')
 
 
 function cat(path){
@@ -9,7 +10,8 @@ function cat(path){
             console.log(`could not read path ${path}: ${err}`);
             process.exit(1); 
         } 
-        console.log(data);
+        let mm = new MarkovMachine(data);
+        console.log(mm.makeText());
     })    
 }
 
