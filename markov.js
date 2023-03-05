@@ -45,7 +45,7 @@ class MarkovMachine {
     return chain;
   }
 
- 
+  
 
   /** return random text from chains */
 
@@ -72,7 +72,7 @@ class MarkovMachine {
 
     let nextkey = findvalue(firstWord);
 
-    for(let i = 0; i<numWords-1; i++){
+    for(let i = 0; i<numWords-2; i++){
       
       if(wordArray[wordArray.length-1] == null){
         break;
